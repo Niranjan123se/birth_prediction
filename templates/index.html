@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birth Weight Prediction</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 35px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            font-weight: 600;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #6c63ff;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: #6c63ff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background: #5548c8;
+            transform: translateY(-2px);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Birth Weight Prediction</h1>
+
+        <form method="POST" action="predict">
+            <label>Gestation</label>
+            <input type="number" name="gestation" required>
+
+            <label>Parity</label>
+            <input type="number" name="parity" required>
+
+            <label>Age</label>
+            <input type="number" name="age" required>
+
+            <label>Height</label>
+            <input type="number" name="height" required>
+
+            <label>Weight</label>
+            <input type="number" name="weight" required>
+
+            <label>Smoke</label>
+            <input type="number" name="smoke" required>
+
+            <input type="submit" value="Predict">
+        </form>
+        {% if responce %}
+            <h2>Predicted Birth Weight: {{ responce }}</h2>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
