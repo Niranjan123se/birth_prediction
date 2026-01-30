@@ -42,7 +42,6 @@ def get_prediction ():
 
     # make a prediction
     prediction=model.predict(df)
-    print(type(prediction))
     prediction=round(float(prediction[0]),2 )
     responce= prediction
     return render_template('index.html',responce=responce)
